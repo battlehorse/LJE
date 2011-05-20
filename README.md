@@ -1,8 +1,8 @@
 # Live Javascript Editor #
-**Live Javascript Editor** (LJE) is a simple HTML page that lets you type and execute
+**Live Javascript Editor** (LJE) is a simple Javascript app that lets you type and execute
 Javascript code and snippets on the fly.
 
-It's main purpose is to help a speaker present and illustrate Javascript code to an
+Its main purpose is to help a speaker present and illustrate Javascript code to an
 audience, like you would do during a tech conference.
 
 I originally created LJE for [Google I/O 2011](http://www.google.com/events/io/2011/index-live.html)
