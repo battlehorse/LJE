@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- 
+  Copyright 2011 Google Inc. All Rights Reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<html>
+<body>
+  <pre id='code'>
+// Uncomment to clear the arena at
+// every execution
+//$('#box_arena').children().remove();
+
+for (var i = 0; i &lt; 10; i++) {
+  // Define a random color
+  var red = String(
+    Math.floor(Math.random()*250));
+  var green = String(
+    Math.floor(Math.random()*250));
+  var blue = String(
+    Math.floor(Math.random()*250));
+
+  // Clone a box
+  $('#box').clone().css({
+    // Make it visible and position it randomly
+    'display': '',
+    'top': 
+      Math.floor(Math.random()*100) + 20,
+    'left': 
+      Math.floor(Math.random()*100) + 20,
+    'background-color': 
+      // Swap comments to use shades of red
+      'rgb(' + red + ',' + green + ',' + blue + ')'
+      //'rgb(' + red + ',0,0)'
+  }).
+  // Append to the DOM
+  appendTo($('#box_arena')).
+  // Animate the box
+  animate({
+    'top':
+      Math.floor(Math.random()*500) + 20,
+    'left':
+      Math.floor(Math.random()*300) + 20
+  }, /* duration */ 500);
+}</pre>
+  <div id='content_1'>
+    <div id='box' style='
+      display: none; 
+      position: absolute;
+      width: 20px;
+      height: 20px; 
+      top: 10; 
+      left: 10;
+      border-radius: 10px;
+      box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.2);'></div>
+    <div id='box_arena' style='position: relative'>
+    </div>
+  </div>
+  <script>
+    parent.editor.addShortCut(
+      'demo1',
+      document.getElementById('code'),
+      document.getElementById('content_1').cloneNode(true));
+  </script>
+</body>
+</html>

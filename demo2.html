@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- 
+  Copyright 2011 Google Inc. All Rights Reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<html>
+<body>
+  <pre id='code'>
+loadLibraries(document, [
+  'http://mbostock.github.com/d3/d3.js',
+  'http://mbostock.github.com/d3/d3.layout.js',
+  'http://mbostock.github.com/d3/ex/stream_layers.js',
+], function() {
+$('#chart').children().remove();
+
+// Code from
+// http://mbostock.github.com/d3/ex/stream.html
+
+var n = 20, // number of layers
+    m = 200, // number of samples per layer
+    data0 = d3.layout.stack().offset("wiggle")(stream_layers(n, m)),
+    data1 = d3.layout.stack().offset("wiggle")(stream_layers(n, m)),
+    color = d3.interpolateRgb("#f00", "#fcc");
+
+var w = 400,
+    h = 500,
+    mx = m - 1,
+    my = d3.max(data0.concat(data1), function(d) {
+      return d3.max(d, function(d) {
+        return d.y0 + d.y;
+      });
+    });
+
+var area = d3.svg.area()
+    .x(function(d) { return d.x * w / mx; })
+    .y0(function(d) { return h - d.y0 * h / my; })
+    .y1(function(d) { return h - (d.y + d.y0) * h / my; });
+
+var vis = d3.select("#chart")
+  .append("svg:svg")
+    .attr("width", w)
+    .attr("height", h);
+
+vis.selectAll("path")
+    .data(data0)
+  .enter().append("svg:path")
+    .attr("fill", function() { return color(Math.random()); })
+    .attr("d", area);
+});
+  </pre>
+  <div id='content_2'>
+    <div id="chart"></div>
+  </div>
+  <script>
+    parent.editor.addShortCut(
+      'demo2',
+      document.getElementById('code'),
+      document.getElementById('content_2').cloneNode(true));
+  </script>
+</body>
+</html>

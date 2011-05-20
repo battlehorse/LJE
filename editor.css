@@ -1,0 +1,111 @@
+HEADER {
+  display: block;
+  background: #ff0000; /* Old browsers */
+  background: -moz-linear-gradient(left, #ff0000 0%, #ff7400 25%, #cd0074 75%, #00cc00 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ff0000), color-stop(25%,#ff7400), color-stop(75%,#cd0074), color-stop(100%,#00cc00)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #ff0000 0%,#ff7400 25%,#cd0074 75%,#00cc00 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, #ff0000 0%,#ff7400 25%,#cd0074 75%,#00cc00 100%); /* Opera11.10+ */
+  background: -ms-linear-gradient(left, #ff0000 0%,#ff7400 25%,#cd0074 75%,#00cc00 100%); /* IE10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF0000', endColorstr='#00CC00',GradientType=1 ); /* IE6-9 */
+  background: linear-gradient(left, #ff0000 0%,#ff7400 25%,#cd0074 75%,#00cc00 100%); /* W3C */
+  height: 5px;
+}
+
+#code {
+  font-size: 1.2em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+}
+
+#shortcuts {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  height: 16px;
+}
+
+#toggleSections {
+  margin-top: 8px;
+}
+
+#toggleSections, #execute {
+  font-size: 11px;
+  display: inline-block;
+}
+
+#demoArea, #codeArea {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  box-shadow: inset 2px 2px 2px #bbb;
+  border: 1px solid #ddd;
+}
+
+#codeArea {
+  left: 0;
+  right: 450px;
+  background-color: #efefef;
+  padding: 4px;
+}
+
+#demoArea {
+  left: 450px;
+  right: 0;
+  padding: 1em;
+  font-family: sans-serif;
+  font-size: 0.9em;
+  overflow: hidden;
+}
+
+#errors {
+  font-size: 0.7em;
+  background-color: #E01B4C;
+  color: white;
+  padding: 0.2em;
+  font-family: arial;
+  display: none;
+}
+
+#shortcuts A {
+  margin-right: 0.2em;
+  background-color: #fff;
+  border: 1px solid #999;
+  text-decoration: none;
+  min-width: 2em;
+  display: inline-block;
+  text-align: center;
+  color: black;
+  font-family: sans-serif;
+  font-size: 0.8em;
+}
+
+#shortcuts A:hover {
+  background-color: #eee;
+}
+
+#shortcuts A:active {
+  background-color: #C7DFFF;
+}
+
+.CodeMirror {
+  height: 100%;
+}
+
+.control {
+  margin: 0.5em;
+}
+
+.chart {
+  margin: 0.5em 0;
+}
+
+.inlineParticipants .control,
+.inlineParticipants .chart {
+  display: inline-block;
+  vertical-align: top;
+}
+
